@@ -1,0 +1,9 @@
+img {
+    width: 43px !important;
+}
+
+.nav-link {
+    &:focus {
+        font-weight: 600 !important;
+    }
+}

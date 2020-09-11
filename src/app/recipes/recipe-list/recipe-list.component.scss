@@ -1,0 +1,14 @@
+.no-rec-det {
+    h3 {
+        text-align: center;
+    }
+}
+
+.custom-card-width {
+    width: 49% !important;
+    .rec-btn {
+        button {
+            font-weight: 700;
+        }
+    }
+}
