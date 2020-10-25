@@ -5,7 +5,7 @@ const Recipe = require('./models/recipe');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://milan:MhfNJrRwarLtcviT@my-cluster.zjeks.mongodb.net/db-angular?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://milan:1Gdj6G10TcesfBHe@cluster0.gakx8.mongodb.net/kitchen-db?retryWrites=true&w=majority', { useNewUrlParser: true })
     .then(()=> {
         console.log('Connected to database');
     })

@@ -1,21 +1,16 @@
-<div class="row no-gutters">
-    <div class="col-12 d-flex justify-content-center align-items-center flex-column p-0 mt-4 mx-auto"  *ngIf="recipes.length > 0">
-        <div class="card text-dark bg-light mb-3 custom-card-width" *ngFor= "let recipe of recipes">
-            <div class="card-header">{{recipe.title}}</div>
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text">{{recipe.description}}</p>
-              <hr>
-              <div class="d-flex justify-content-end rec-btn">
-                  <a class="btn btn-danger mr-2" [routerLink]="['/edit', recipe.id]">Edit</a>
-                  <button class="btn btn-danger ml-2" (click)="onDelete(recipe.id)">Delete</button>
-              </div>
-            </div>
-
-          </div>
-    </div>
-        <div class="col-12 d-flex justify-content-center mx-auto flex-column no-rec-det p-0">
-            <h3 class="mt-3" *ngIf="recipes.length <= 0">No recipes added yet!</h3>
+<div fxLayoutAlign="center center" fxFlex="100" class="no-rec-added" fxLayout="row">
+    <div *ngIf="recipes.length > 0" fxFlex="40">
+        <mat-card *ngFor="let recipe of recipes" class="card-det">
+            <mat-card-title class="recipe-title">{{recipe.title}}</mat-card-title>
+            <mat-card-content class="recipe-description">{{recipe.description}}</mat-card-content>
+            <mat-divider class="divider-det"></mat-divider>
+        <div fxLayoutAlign="flex-end" class="recipe-det-btn">
+            <button mat-flat-button color="primary" [routerLink]="['/edit', recipe.id]">Edit</button>
+            <button mat-flat-button color="warn" (click)="onDelete(recipe.id)">Delete</button>
         </div>
+    </mat-card>
     </div>
-
+    <div>
+        <h1 *ngIf="recipes.length <= 0"> No current recipe! </h1>
+    </div>
+</div>

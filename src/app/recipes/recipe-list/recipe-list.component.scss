@@ -1,14 +1,34 @@
-.no-rec-det {
-    h3 {
-        text-align: center;
-    }
-}
-
-.custom-card-width {
-    width: 49% !important;
-    .rec-btn {
-        button {
-            font-weight: 700;
+.no-rec-added {
+    margin-top: 18px;
+    .card-det {
+        padding: 0;
+        margin-bottom: 30px;
+        border: 1px solid rgba(0,0,0,.125);
+        box-shadow: 0px 0px 40px -16px rgba(156,151,156,0.68);
+        .recipe-title {
+            margin: 0;
+            padding: 16px;
+            background-color: #886F68;
+            color: white;
+            border-radius: 4px;
+        }
+        .recipe-description {
+            margin: 0;
+            padding: 16px;
+        }
+        .divider-det {
+            position: absolute !important;
+            left: 3% !important;
+            width: 94% !important;
+        }
+        .recipe-det-btn {
+            padding: 16px;
+            button {
+                margin-left: 10px;
+                &:focus {
+                    outline: none;
+                }
+            }
         }
     }
 }

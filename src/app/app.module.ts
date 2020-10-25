@@ -7,6 +7,16 @@ import { AppComponent } from './app.component';
 import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -15,6 +25,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
     RecipeCreateComponent,
     HeaderComponent,
     RecipeListComponent,
+    SignupComponent,
+    LoginComponent,
    
   ],
   imports: [
@@ -22,6 +34,14 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

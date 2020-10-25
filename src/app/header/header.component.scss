@@ -1,9 +1,18 @@
-img {
-    width: 43px !important;
-}
 
-.nav-link {
-    &:focus {
-        font-weight: 600 !important;
+.toolbar-custom {
+    img {
+        width: 43px !important;
+        margin-right: 15px;
+    }
+    span {
+        padding: 0 8px;
+        font-size: 16px;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+            background-color: #886F68;
+            border-radius: 4px;
+        }
     }
 }
+
