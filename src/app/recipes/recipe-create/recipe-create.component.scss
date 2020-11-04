@@ -17,6 +17,25 @@
     }
     .create-body {
         padding: 16px;
+
+        input[type="file"] {
+            visibility: hidden;
+        }
+        .title-section {
+            padding-bottom: 16px;
+        }
+        .description-section {
+            padding: 10px 0;
+        }
+
+        .img-preview {
+            height: 20rem;
+            margin: 1rem 0;
+            img {
+                height: 100%;
+                max-width: 100%;
+            }
+        }
     }
     .create-textarea {
         resize: none;

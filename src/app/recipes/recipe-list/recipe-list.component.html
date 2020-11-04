@@ -3,6 +3,9 @@
         <mat-card *ngFor="let recipe of recipes" class="card-det">
             <mat-card-title class="recipe-title">{{recipe.title}}</mat-card-title>
             <mat-card-content class="recipe-description">{{recipe.description}}</mat-card-content>
+            <div class="img-preview">
+                <img [src]="recipe.imagePath" [alt]="recipe.title">
+            </div>
             <mat-divider class="divider-det"></mat-divider>
         <div fxLayoutAlign="flex-end" class="recipe-det-btn">
             <button mat-flat-button color="primary" [routerLink]="['/edit', recipe.id]">Edit</button>

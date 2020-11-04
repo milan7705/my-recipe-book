@@ -4,15 +4,24 @@
         Add New Recipe
       </mat-card-title>
       <mat-card-content class="create-body">
-        <form class="example-form" fxLayout="column" (submit) ="onSaveRecipe(recipeForm)" #recipeForm = "ngForm">
-          <mat-form-field class="example-full-width">
+        <form class="example-form" fxLayout="column" (submit) ="onSaveRecipe()" [formGroup]="createRecipeForm">
+          <mat-form-field class="title-section">
             <mat-label>Title</mat-label>
-            <input [ngModel]="recipe?.title" required minlength="3" name="title" #title="ngModel" type="text" matInput placeholder="Enter the title of the recipe." >
+            <input formControlName="title" type="text" matInput placeholder="Enter the title of the recipe." >
+            <mat-error *ngIf="createRecipeForm.get('title').invalid">Please enter the title of the recipe</mat-error>
           </mat-form-field>
+          <div>
+          <button mat-flat-button type="button" color="accent" (click)="choseFile.click()">Upload Image</button>
+          <input type="file" #choseFile (change)="onPickedImage($event)">
+          </div>
+          <div class="img-preview" *ngIf="imagePreview !== '' && imagePreview && createRecipeForm.get('image').valid">
+            <img [src]="imagePreview" [alt]="createRecipeForm.value.title">
+          </div>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="description-section">
             <mat-label>Description</mat-label>
-            <textarea matInput [ngModel]="recipe?.description" required name="description" placeholder="Enter the description of the recipe." class="create-textarea"></textarea>
+            <textarea matInput formControlName="description" placeholder="Enter the description of the recipe." class="create-textarea"></textarea>
+            <mat-error *ngIf="createRecipeForm.get('description').invalid">Please enter the discription of the recipe</mat-error>
           </mat-form-field>
           <button mat-flat-button type="submit" color="primary">Save Recipe</button>
 
