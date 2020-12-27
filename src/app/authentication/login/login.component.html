@@ -1,24 +1,30 @@
 <div fxLayout="row">
       <div fxFlex="100" fxLayout="column" fxLayoutAlign=" center center">
-        <img src="../../../assets/icon2.png" alt="icon" fxFlex="35">
+        <h1>ONLINE RECIPE BK</h1>
 
-        <form class="bg-custom" fxLayout="column">
+        <form class="bg-custom" fxLayout="column" (submit)="onLogin(loginForm)" #loginForm="ngForm">
           <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="myEmail" required>
-            <mat-error *ngIf="myEmail.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput placeholder="pat@example.com" ngModel required name="email" required email #emailLogin="ngModel">
+            <mat-error *ngIf="emailLogin.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
-        
+
           <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" required>
-            <mat-error *ngIf="myEmail.invalid">{{getErrorMessage()}}</mat-error>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <input matInput [type]="hide ? 'password' : 'text'" required ngModel name="password" #passwordLogin="ngModel">
+            <mat-error *ngIf="passwordLogin.invalid">{{getErrorMessage()}}</mat-error>
+
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type="button">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
+          <button mat-flat-button type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Login</button>
         </form>
-        
-        
+        <h2 class="under-form-txt">Don't have an account?</h2>
+        <button mat-stroked-button color="primary" class="signup-btn-custom" (click)="onSignup()">Sign up for free!</button>
+
+
+
       </div>
     </div>
+

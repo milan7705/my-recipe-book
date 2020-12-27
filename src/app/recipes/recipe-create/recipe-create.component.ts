@@ -40,9 +40,9 @@ export class RecipeCreateComponent implements OnInit {
           this.recipeService.getRecipe(this.recipeId)
             .subscribe(postData => {
               this.recipe = {
-                id: postData._id, 
-                title: postData.title, 
-                description: postData.description, 
+                id: postData._id,
+                title: postData.title,
+                description: postData.description,
                 imagePath: postData.imagePath
               };
               this.createRecipeForm.setValue({
@@ -74,19 +74,19 @@ export class RecipeCreateComponent implements OnInit {
     if (this.createRecipeForm.invalid) {
       return;
     }
-    this.router.navigate(["/"]); 
+    this.router.navigate(["/recipe-list"]);
     if(this.mode === 'create') {
       this.recipeService.addRecipe(
-        this.createRecipeForm.value.title, 
-        this.createRecipeForm.value.description, 
+        this.createRecipeForm.value.title,
+        this.createRecipeForm.value.description,
         this.createRecipeForm.value.image);
     } else {
       this.recipeService.updatePost(
         this.recipeId,
         this.createRecipeForm.value.title,
-        this.createRecipeForm.value.description, 
+        this.createRecipeForm.value.description,
         this.createRecipeForm.value.image);
-      
+
     }
     this.createRecipeForm.reset();
   }

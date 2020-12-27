@@ -1,24 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="col-12 d-flex align-items-center flex-column">
-            <img src="../../../assets/icon2.png" alt="icon" class="w-25 m-3">
-            <!-- <h2>Moja Kuhinja</h2> -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <form class="bg-custom">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-dark">Sign Up</button>
-              </form>
-        </div>
-    </div>
-       
+<div fxLayout="row">
+      <div fxFlex="100" fxLayout="column" fxLayoutAlign=" center center">
+        <h1>CUKAM</h1>
+        <form class="bg-custom" fxLayout="column" (submit)="onSignup(signupForm)" #signupForm="ngForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" ngModel required name="email" required email #emailSignup="ngModel">
+            <mat-error *ngIf="emailSignup.invalid">Please enter the value in this field</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required ngModel name="password" #passwordSignup="ngModel">
+            <mat-error *ngIf="passwordSignup.invalid">Please enter the value in this field</mat-error>
+
+          </mat-form-field>
+          <button mat-flat-button type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Sign up</button>
+        </form>
+      </div>
     </div>

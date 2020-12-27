@@ -4,12 +4,14 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
+import { AuthGuard } from './authentication/auth.guard';
 
 const routes: Routes = [
-  { path:'', component: RecipeListComponent},
-  { path:'create', component: RecipeCreateComponent},
-  { path:'edit/:recipeId', component: RecipeCreateComponent},
+  { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'login', component: LoginComponent},
+  { path:'create', component: RecipeCreateComponent, canActivate: [AuthGuard]},
+  { path:'edit/:recipeId', component: RecipeCreateComponent, canActivate: [AuthGuard]},
+  { path:'recipe-list', component: RecipeListComponent, canActivate: [AuthGuard]},
   { path:'signup', component: SignupComponent},
 
 
@@ -17,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

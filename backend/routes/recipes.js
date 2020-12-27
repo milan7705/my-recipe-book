@@ -1,9 +1,9 @@
 const express = require('express');
+// const chekAuth = require('../middleware/auth-check')
+const multer = require('multer');
 const Recipe = require('../models/recipe');
-
+const authCheck = require('../middleware/auth-check');
 const router = express.Router();
-
-const multer = require('multer')
 
 const MIME_TYPE_MAP = {
     'image/png': 'png',
@@ -31,8 +31,9 @@ const fileStorage = multer.diskStorage({
 
 
   //POST
-  router.post('', multer({storage: fileStorage}).single('image'),(req, res, next)=> { 
-    const url = req.protocol + '://' + req.get("host");
+  router.post('', authCheck ,multer({storage: fileStorage}).single('image'),
+  (req, res, next)=> { 
+    const url = req.protocol + '://' + req.get("host");  // PROVERI OVO "HOST"
     const recipe = new Recipe({
         title: req.body.title,
         description: req.body.description,
@@ -49,10 +50,11 @@ const fileStorage = multer.diskStorage({
     });
   });    
 //PUT
-router.put('/:id',multer({storage: fileStorage}).single('image'),(req, res, next)=> {
+router.put('/:id', authCheck, multer({storage: fileStorage}).single('image'),
+(req, res, next)=> {
     let imagePath = req.body.imagePath;
     if (req.file) {
-    const url = req.protocol + '://' + req.get("host");
+    const url = req.protocol + '://' + req.get("host");  //PROVERI I OVAJ HOST
     imagePath = url + "/images/" + req.file.filename
     }
     const recipe = new Recipe({
@@ -96,7 +98,7 @@ router.get('/:id',(req, res, next)=> {
 });
 
 //DELETE
-router.delete('/:id', (req, res, next)=> {
+router.delete('/:id', authCheck, (req, res, next)=> {
     Recipe.deleteOne({ _id: req.params.id }).then(result => { 
     console.log(result);
     res.status(200).json({message: 'Recipe deleted'})

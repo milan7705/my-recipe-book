@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
+import { AuthService } from './authentication/auth.service';
 
 
 @Component({
@@ -10,22 +11,25 @@ import { filter } from 'rxjs/internal/operators/filter';
 })
 export class AppComponent {
   hideHeader: boolean;
-  dynamicPadding: string;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      if (event.url.includes('/signup') || event.urlAfterRedirects.includes('/signup')) {
-        this.hideHeader = true;
-      } else if (event.url.includes('/login')) {
-        this.hideHeader = true;
-        this.dynamicPadding = 'p-0';
+
+      if (localStorage.getItem('jwt_token')) {
+        this.authService.setToken(localStorage.getItem('jwt_token'));
+        this.authService.setAuthLogin(true);
+
       }
-       else {
+
+      if (event.urlAfterRedirects.includes('/signup') || event.urlAfterRedirects.includes('/login')) {
+        this.hideHeader = true;
+      } else {
         this.hideHeader = false;
-        this.dynamicPadding = 'pt-60';
       }
     });
   }

@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from '../authentication/auth.service';
 
 
 @Injectable({
@@ -30,7 +31,7 @@ export class RecipeService {
       .subscribe((transformData)=> {
         this.recipes = transformData;
         this.recipeUpdated.next([...this.recipes])
-      }); 
+      });
   }
 
   getRecipeListener() {
@@ -40,7 +41,7 @@ export class RecipeService {
   getRecipe(id: string) {
     return this.http.get<{_id: string, title: string, description: string, imagePath: string}>("http://localhost:3000/api/recipes/" + id);
   }
-  
+
   updatePost(id: string, title: string, description: string, image: File | string) {
     let recipeData: Recipe | FormData;
     if (typeof(image) === 'object') {
@@ -55,7 +56,7 @@ export class RecipeService {
         title: title,
         description: description,
         imagePath: image
-      } 
+      }
     }
     this.http
       .put("http://localhost:3000/api/recipes/" + id, recipeData)
@@ -71,7 +72,7 @@ export class RecipeService {
         updatedPosts[oldPostIndex] = recipe;
         this.recipes = updatedPosts;
         this.recipeUpdated.next([...this.recipes]);
-        this.router.navigate(["/"]);
+        this.router.navigate(["/recipe-list"]); // CHECK THIS LINE!!!!!!!!!!!!!!!! <--------------------------
       });
   }
 
@@ -83,10 +84,10 @@ export class RecipeService {
     this.http.post<{message: string, recipe: Recipe}>('http://localhost:3000/api/recipes', recipeData)
       .subscribe((responseData)=> {
         const recipe: Recipe = {
-          id: responseData.recipe.id, 
-          title: title, 
+          id: responseData.recipe.id,
+          title: title,
           description: description,
-          imagePath: responseData.recipe.imagePath
+          imagePath: responseData.recipe['_doc'].imagePath
         };
         this.recipes.push(recipe);
         this.recipeUpdated.next([...this.recipes]);
@@ -98,6 +99,6 @@ export class RecipeService {
         const updatedPost = this.recipes.filter(recipe => recipe.id !== recipeId);
         this.recipes = updatedPost;
         this.recipeUpdated.next([...this.recipes]);
-        });   
+        });
   }
 }
