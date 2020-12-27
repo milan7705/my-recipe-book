@@ -1,7 +1,6 @@
 <div fxLayout="row">
-      <div fxFlex="100" fxLayout="column" fxLayoutAlign=" center center">
-        <h1>ONLINE RECIPE BK</h1>
-
+      <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" class="login-det">
+        <h1 class="logo-custom">ONLINE <span>RECIPE BOOK</span></h1>
         <form class="bg-custom" fxLayout="column" (submit)="onLogin(loginForm)" #loginForm="ngForm">
           <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
@@ -22,9 +21,6 @@
         </form>
         <h2 class="under-form-txt">Don't have an account?</h2>
         <button mat-stroked-button color="primary" class="signup-btn-custom" (click)="onSignup()">Sign up for free!</button>
-
-
-
       </div>
     </div>
 

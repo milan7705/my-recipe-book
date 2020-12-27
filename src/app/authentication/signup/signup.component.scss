@@ -1,3 +1,36 @@
+@font-face {
+  font-family: mainFont;
+  src: url(../../../fonts/Bangers-Regular.ttf);
+}
+
+.signup-det {
+height: 920px;
+.logo-custom {
+  font-size: 38px;
+  margin: 40px 0 0 0;
+  color: #673ab7;
+  /* border: 1px solid #673ab7; */
+  border-radius: 4px;
+  font-family: mainFont !important;
+  padding: 15px;
+  span {
+    background-color: #673ab7;
+    color: white;
+    border: 1px solid #673ab7;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+}
+.signup-btn-custom {
+  width: 30%;
+  height: 53px;
+  box-shadow: 0px 0px 22px -8px rgba(0, 0, 0, 0.32);
+  border-radius: 50px;
+  border: 0.5px solid;
+}
+}
+
 .bg-custom {
     padding: 20px;
     border-radius: 8px;
@@ -6,12 +39,3 @@
     margin: 40px 0;
 }
 
-
-// @font-face {
-//     font-family: mainFont;
-//     src: url(../../../fonts/GoldenHillsDEMO.ttf);
-// }
-// h2 {
-//     font-family: mainFont !important;
-
-// }

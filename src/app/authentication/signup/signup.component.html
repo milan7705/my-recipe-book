@@ -1,6 +1,6 @@
 <div fxLayout="row">
-      <div fxFlex="100" fxLayout="column" fxLayoutAlign=" center center">
-        <h1>CUKAM</h1>
+      <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" class="signup-det">
+        <h1 class="logo-custom">ONLINE <span>RECIPE BOOK</span></h1>
         <form class="bg-custom" fxLayout="column" (submit)="onSignup(signupForm)" #signupForm="ngForm">
           <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
@@ -16,5 +16,7 @@
           </mat-form-field>
           <button mat-flat-button type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Sign up</button>
         </form>
+        <button mat-stroked-button color="primary" class="signup-btn-custom" (click)="onLogin()">Back to the login screen!</button>
+
       </div>
     </div>

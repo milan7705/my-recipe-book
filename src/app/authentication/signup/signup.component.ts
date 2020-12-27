@@ -23,7 +23,9 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-
+  onLogin() {
+    this.router.navigate(['/login'])
+  }
   ngOnInit(): void {
   }
 

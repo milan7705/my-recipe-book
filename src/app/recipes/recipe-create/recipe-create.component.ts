@@ -23,7 +23,7 @@ export class RecipeCreateComponent implements OnInit {
   imagePreview: string;
 
 
-  constructor(public recipeService: RecipeService, public route: ActivatedRoute, private router: Router) { }
+  constructor(public recipeService: RecipeService, public route: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
       this.createRecipeForm = new FormGroup({
