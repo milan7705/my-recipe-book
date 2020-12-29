@@ -25,5 +25,5 @@
 	5.2)Za pokretanje serverske strane otvoriti terminal u Root folderu projekta uporedno sa terminalom zaduženim za klijentsku stranu
 	    i pokrenuti server komandom:
 		
-		5.2.1) npm run start:server
+		5.2.1) npm run server
  

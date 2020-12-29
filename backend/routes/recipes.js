@@ -1,5 +1,4 @@
 const express = require('express');
-// const chekAuth = require('../middleware/auth-check')
 const multer = require('multer');
 const Recipe = require('../models/recipe');
 const authCheck = require('../middleware/auth-check');
@@ -32,12 +31,13 @@ const fileStorage = multer.diskStorage({
 
   //POST
   router.post('', authCheck ,multer({storage: fileStorage}).single('image'),
-  (req, res, next)=> { 
-    const url = req.protocol + '://' + req.get("host");  // PROVERI OVO "HOST"
+  (req, res, next)=> {
+    const url = req.protocol + '://' + req.get("host");
     const recipe = new Recipe({
         title: req.body.title,
         description: req.body.description,
-        imagePath: url + "/images/" + req.file.filename
+        imagePath: url + "/images/" + req.file.filename,
+        authorizedUser: req.userData.userId
     });
     recipe.save().then(createdRecipe => {
         res.status(201).json({
@@ -48,13 +48,14 @@ const fileStorage = multer.diskStorage({
             }
         });
     });
-  });    
+  });
+
 //PUT
 router.put('/:id', authCheck, multer({storage: fileStorage}).single('image'),
 (req, res, next)=> {
     let imagePath = req.body.imagePath;
     if (req.file) {
-    const url = req.protocol + '://' + req.get("host");  //PROVERI I OVAJ HOST
+    const url = req.protocol + '://' + req.get("host");
     imagePath = url + "/images/" + req.file.filename
     }
     const recipe = new Recipe({
@@ -63,15 +64,16 @@ router.put('/:id', authCheck, multer({storage: fileStorage}).single('image'),
         description: req.body.description,
         imagePath: imagePath
     });
-    Recipe.updateOne({_id: req.params.id}, recipe)
+    Recipe.updateOne({_id: req.params.id, authorizedUser: req.userData.userId}, recipe)
         .then(result => {
-            console.log(result);
-            res.status(200).json(
-                { 
-                    message: 'Update successful!'
-                });
+          if(result.nModified > 0) {
+            res.status(200).json( {message: 'Update successful!'});
+          } else {
+            res.status(401).json( {message: 'Not Authorized!'});
+
+          }
         });
-}); 
+});
 
 //GET
 router.get('',(req, res, next)=> {
@@ -99,9 +101,13 @@ router.get('/:id',(req, res, next)=> {
 
 //DELETE
 router.delete('/:id', authCheck, (req, res, next)=> {
-    Recipe.deleteOne({ _id: req.params.id }).then(result => { 
-    console.log(result);
-    res.status(200).json({message: 'Recipe deleted'})
+    Recipe.deleteOne({ _id: req.params.id, authorizedUser: req.userData.userId })
+    .then(result => {
+      if(result.n > 0) {
+        res.status(200).json( {message: 'Delete successful!'});
+      } else {
+        res.status(401).json( {message: 'Not Authorized!'});
+      }
 });
 });
 

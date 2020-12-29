@@ -72,7 +72,7 @@ export class RecipeService {
         updatedPosts[oldPostIndex] = recipe;
         this.recipes = updatedPosts;
         this.recipeUpdated.next([...this.recipes]);
-        this.router.navigate(["/recipe-list"]); // CHECK THIS LINE!!!!!!!!!!!!!!!! <--------------------------
+        this.router.navigate(["/recipe-list"]);
       });
   }
 
