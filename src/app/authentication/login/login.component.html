@@ -17,7 +17,7 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
-          <button mat-flat-button type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Login</button>
+          <button mat-flat-button type="submit" color="primary" class="btn-success btn-success--auth" fxFlex="33" *ngIf="!isLoading">Login</button>
         </form>
         <h2 class="under-form-txt">Don't have an account?</h2>
         <button mat-stroked-button color="primary" class="signup-btn-custom" (click)="onSignup()">Sign up for free!</button>

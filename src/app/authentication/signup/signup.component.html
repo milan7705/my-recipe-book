@@ -14,7 +14,7 @@
             <mat-error *ngIf="passwordSignup.invalid">Please enter the value in this field</mat-error>
 
           </mat-form-field>
-          <button mat-flat-button type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Sign up</button>
+          <button mat-flat-button class="btn-success btn-success--auth" type="submit" color="primary" fxFlex="33" *ngIf="!isLoading">Sign up</button>
         </form>
         <button mat-stroked-button color="primary" class="signup-btn-custom" (click)="onLogin()">Back to the login screen!</button>
 

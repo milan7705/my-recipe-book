@@ -3,10 +3,20 @@
 
 
 html, body { height: 100%; }
-body { 
-    margin: 0; 
+body {
+    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    // background-image: url("./assets/background.jpg");
-    // background-repeat: no-repeat;
-    // background-size: cover;
- }
+}
+
+
+.btn-success {
+  background-color: #368F8B !important;
+  color: #fff;
+  &--auth {
+    background-color: #18314F !important;
+  }
+}
+
+.card-margins {
+  margin-top: 80px !important;
+}

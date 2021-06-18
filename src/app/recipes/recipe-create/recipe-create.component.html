@@ -1,5 +1,5 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="recipe-create-det">
-    <mat-card fxFlex="35">
+<div fxLayout="row" fxLayoutAlign="center center" class="recipe-create-det ">
+    <mat-card fxFlex="35" class="card-margins">
       <mat-card-title class="create-title">
         Add New Recipe
       </mat-card-title>
@@ -11,7 +11,7 @@
             <mat-error *ngIf="createRecipeForm.get('title').invalid">Please enter the title of the recipe</mat-error>
           </mat-form-field>
           <div>
-          <button mat-flat-button type="button" color="accent" (click)="choseFile.click()">Upload Image</button>
+          <button mat-flat-button type="button" class="btn-upload" (click)="choseFile.click()">Upload Image</button>
           <input type="file" #choseFile (change)="onPickedImage($event)">
           </div>
           <div class="img-preview" *ngIf="imagePreview !== '' && imagePreview && createRecipeForm.get('image').valid">
@@ -23,7 +23,7 @@
             <textarea matInput formControlName="description" placeholder="Enter the description of the recipe." class="create-textarea"></textarea>
             <mat-error *ngIf="createRecipeForm.get('description').invalid">Please enter the discription of the recipe</mat-error>
           </mat-form-field>
-          <button mat-flat-button type="submit" color="primary">Save Recipe</button>
+          <button mat-flat-button type="submit" class="btn-success">Save Recipe</button>
 
         </form>
       </mat-card-content>

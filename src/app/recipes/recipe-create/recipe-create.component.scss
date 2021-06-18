@@ -1,6 +1,4 @@
 .recipe-create-det {
-    
-    margin-top: 18px;
     .mat-card {
         padding: 0;
         border: 1px solid rgba(0,0,0,.125);
@@ -10,7 +8,7 @@
     .create-title {
         margin: 0;
         padding: 16px 0px;
-        background-color: #886F68;
+        background-color: #823038;
         color: white;
         text-align: center;
         border-radius: 4px;
@@ -35,6 +33,10 @@
                 height: 100%;
                 max-width: 100%;
             }
+        }
+        .btn-upload {
+          background-color: #858786!important;
+          color: #fff;
         }
     }
     .create-textarea {

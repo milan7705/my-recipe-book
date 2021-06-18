@@ -1,4 +1,4 @@
-<div fxLayoutAlign="center center" fxFlex="100" class="no-rec-added" fxLayout="row">
+<div fxLayoutAlign="center center" fxFlex="100" class="no-rec-added card-margins" fxLayout="row">
     <div *ngIf="recipes.length > 0" fxFlex="80" fxLayout="row" fxLayoutAlign="space-around center">
         <mat-card *ngFor="let recipe of recipes" class="card-det">
             <mat-card-title class="recipe-title">{{recipe.title}}</mat-card-title>
@@ -8,7 +8,7 @@
             </div>
             <mat-divider class="divider-det"></mat-divider>
         <div fxLayoutAlign="flex-end" class="recipe-det-btn">
-            <button mat-flat-button color="primary" [routerLink]="['/edit', recipe.id]">Edit</button>
+            <button mat-flat-button class="btn-success" [routerLink]="['/edit', recipe.id]">Edit</button>
             <button mat-flat-button color="warn" (click)="onDelete(recipe.id)">Delete</button>
         </div>
     </mat-card>

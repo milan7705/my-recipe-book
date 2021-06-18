@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {MatTabsModule} from '@angular/material/tabs';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@Angular/common/http';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AuthInterceptor } from './authentication/auth-interceptor';
+import { DrinkListComponent } from './drink-list/drink-list.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { AuthInterceptor } from './authentication/auth-interceptor';
     RecipeListComponent,
     SignupComponent,
     LoginComponent,
-   
+    DrinkListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AuthInterceptor } from './authentication/auth-interceptor';
     MatDividerModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
