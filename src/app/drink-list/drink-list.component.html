@@ -4,31 +4,37 @@
     <mat-tab-group mat-align-tabs="center" style="max-height: 600px;">
       <mat-tab label="Coctails" >
         <mat-card class="drink-card" *ngFor="let coctailItem of coctails">
+          <mat-card-title class="drink-item-title"> <h2>{{coctailItem.drinkName}}</h2></mat-card-title>
           <div fxLayout="row" fxLayoutAlign="space-between center">
+
             <div fxLayout="row" fxLayoutAlign="space-between center">
-            <h2 style="margin: 0">{{coctailItem.drinkName}}</h2><img [src]="coctailItem.drinkImage" alt="drink">
+            <img [src]="coctailItem.drinkImage" alt="drink">
+            <p>{{coctailItem.drinkDescription}}</p>
           </div>
-          <button mat-flat-button type="submit" class="btn-success">Details</button>
+
           </div>
         </mat-card>
       </mat-tab>
       <mat-tab label="Wines" >
         <mat-card class="drink-card drink-card--wines" *ngFor="let wineItem of wines">
+          <mat-card-title class="drink-item-title"> <h2>{{wineItem.drinkName}}</h2></mat-card-title>
           <div fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-            <h2 style="margin: 0; max-width: 215px">{{wineItem.drinkName}}</h2><img [src]="wineItem.drinkImage" alt="drink">
+            <div fxLayout="row" fxLayoutAlign="space-between center"><img [src]="wineItem.drinkImage" alt="drink">
+            <p>{{wineItem.drinkDescription}}</p>
           </div>
-          <button mat-flat-button type="submit" class="btn-success">Details</button>
+
           </div>
         </mat-card>
       </mat-tab>
       <mat-tab label="Booze" >
         <mat-card class="drink-card drink-card--booze" *ngFor="let boozeItem of boozes">
+          <mat-card-title class="drink-item-title"><h2>{{boozeItem.drinkName}}</h2></mat-card-title>
+
           <div fxLayout="row" fxLayoutAlign="space-between center">
             <div fxLayout="row" fxLayoutAlign="space-between center">
-            <h2 style="margin: 0">{{boozeItem.drinkName}}</h2><img [src]="boozeItem.drinkImage" alt="drink">
+            <img [src]="boozeItem.drinkImage" alt="drink">
+            <p>{{boozeItem.drinkDescription}}</p>
           </div>
-          <button mat-flat-button type="submit" class="btn-success">Details</button>
           </div>
         </mat-card>
       </mat-tab>
@@ -36,3 +42,5 @@
   </mat-card-content>
     </mat-card>
     </div>
+
+

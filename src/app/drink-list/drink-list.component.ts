@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Drinks} from './drink-list.model';
+
 
 @Component({
   selector: 'app-drink-list',
@@ -22,7 +24,7 @@ export class DrinkListComponent implements OnInit {
   ];
   boozes: Drinks[] = [
     new Drinks('Rakia', 'Rakia tastes similar to Italian grappa or Japanese sake. It is usually transparent or light yellow. Sometimes the taste of the fruit from which it was made prevails (for example, pear rakia, quince rakia, or apricot rakia all have a distinctive fruity scent).', 'https://online.idea.rs/images/products/465/465000017_1l.jpg?1551294750'),
-    new Drinks('Hennessy Cognac', 'Hennessy is Cognac, which is brandy made in Cognac, France. But the brand was created by an Irishman.', 'https://images.shopdutyfree.com/image/upload/v1580467244/020/002/001/3245990529323/3245990529323_1_default_default.jpg'),
+    new Drinks('Hennessy Cognac', 'Hennessy is Cognac, which is brandy made in Cognac, France. But the brand was created by an Irishman. Initial notes of fresh toast with roasted almond and brown sugar are followed and complemented by a second wave of more subtle vine fruit aromas. Its aromatic intensity is reflected in a rich, creamy palate, which brings an added dimension of vanilla, all rounded off by an exuberantly fresh and floral finish.', 'https://images.shopdutyfree.com/image/upload/v1580467244/020/002/001/3245990529323/3245990529323_1_default_default.jpg'),
     new Drinks('Grey Goose Vodka', ' Bottle is the essence of the finest ingredients from France; soft winter wheat from in and around Picardy plus pure spring water from Gensac in the Cognac region, nurtured and captured from field to bottle in an exclusive process designed and controlled by the extraordinary skills and commitment of our Cellar Master François Thibault.', 'https://teddybear.rs/wp-content/uploads/2018/06/Grey-Goose.jpg'),
     new Drinks('Jack Daniel’s', 'Jack Daniel’s Tennessee Whiskey comes from the United States oldest registered distillery and is charcoal mellowed through 10 feet of sugar maple charcoal. ', 'https://static.brown-forman.com/wp-content/uploads/2014/07/08151455/JD_big.jpg'),
     new Drinks('Johnnie Walker', 'This wonderful Scotch Whisky delivers big flavour and is a pleasant fresh whisky, both smooth and warm. A robust, traditional whisky on the palate exhibiting sweet notes of vanilla, spice and malt. ', 'https://www.enotekapremier.rs/media/catalog/product/cache/1/thumbnail/600x600/9df78eab33525d08d6e5fb8d27136e95/j/o/johnnie-walker-black-label-blended-whiskey-box.jpg'),
@@ -30,7 +32,8 @@ export class DrinkListComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor() {}
+
 
   ngOnInit(): void {
   }

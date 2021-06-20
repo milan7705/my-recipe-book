@@ -3,10 +3,23 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #18314F !important;
+  background: unset !important;
+  color: #000;
+  padding: 40px 15px;
+  margin-bottom: 30px !important;
+  a {
+    font-size: 22px !important;
+    &:focus {
+      color: #823038 !important;
+    }
+    &:active {
+      color: #823038 !important;
+    }
+  }
     img {
-        width: 43px !important;
+        width: 55px !important;
         margin-right: 15px;
+        cursor: pointer;
     }
     span {
         padding: 0 8px;
@@ -19,7 +32,9 @@
         }
     }
     .logout-custom {
-      margin-left: auto;
+      a {
+        background:#823038 !important; ;
+      }
     }
 }
 

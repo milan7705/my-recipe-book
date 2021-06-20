@@ -1,11 +1,11 @@
- <mat-toolbar color="primary" class="toolbar-custom">
-    <img src="../../assets/icon.png" alt="logo">
-    <div *ngIf="userIsAuthenticated">
-    <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Recipe</a>
-    <a mat-button routerLink="/recipe-list" routerLinkActive="mat-accent">Recipe List</a>
+ <mat-toolbar color="primary" class="toolbar-custom" >
+    <img src="../../assets/icon.png" alt="logo" routerLink="/recipe-list">
+    <div *ngIf="userIsAuthenticated" fxLayout="row"  fxFlex="100" fxLayoutAlign="center center">
+    <a mat-button routerLink="/create" routerLinkActive="mat-primary">New Recipe</a>
+    <a mat-button routerLink="/recipe-list" routerLinkActive="mat-primary">Recipe List</a>
+    <a mat-button routerLink="/drink-list" routerLinkActive="mat-primary">Drink List</a>
   </div>
-  <a mat-button routerLink="/drink-list" routerLinkActive="mat-accent">Drink List</a>
     <div *ngIf="userIsAuthenticated" class="logout-custom" >
-    <a mat-button (click)= "onLogout()">Logout</a>
+    <a mat-button mat-flat-button color="warn" (click)= "onLogout()">Logout</a>
   </div>
 </mat-toolbar>

@@ -3,17 +3,22 @@
   }
   .drink-card {
     margin: 40px;
+    .drink-item-title {
+      background: burlywood !important;
+      border-radius: 4px !important;
+      padding: 0 10px !important;
+    }
     img {
       width: 50px !important;
-      margin-left: 10px !important;
+      margin-right: 30px;
     }
     h2 {
-      margin: 0;
+      margin: 0 !important;
+    }
+    p {
+      margin-bottom: 0 !important;
     }
     &--wines {
-      h2 {
-        max-width: 215px;
-      }
       img {
         width: 70px !important;
       }
